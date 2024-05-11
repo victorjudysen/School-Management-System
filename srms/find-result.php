@@ -55,6 +55,13 @@ include('includes/config.php');
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+
+                            <div class="col-sm-6">
+                                <button>
+                                    <a href="index.php">Back Home</a>
+                                </button>
+                            </div>
+
                         </form>
                     </div>
                 </div>
@@ -84,3 +91,6 @@ include('includes/config.php');
                 });
             });
         </script>
+
+
+
