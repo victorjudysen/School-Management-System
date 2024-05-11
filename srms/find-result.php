@@ -15,38 +15,53 @@ include('includes/config.php');?><!DOCTYPE html>
         <link rel="stylesheet" href="css/main.css" media="screen" >
         <script src="js/modernizr/modernizr.min.js"></script>
     </head>
+
     <body class="">
+
         <div class="main-wrapper">
+
             <div class="login-bg-color bg-black-300">
+
                 <div class="row">
+
                     <div class="col-md-4 col-md-offset-4">
+
                         <div class="panel login-box">
+
                             <div class="panel-heading">
                                 <div class="panel-title text-center">
                                     <h4>School Management System</h4>
                                 </div>
+
                             </div>
                             <div class="panel-body p-20">
                                 <form action="result.php" method="post">
                                 	<div class="form-group">
-                                		<label for="rollid">Enter Student's Registration Number: </label>
+                                		<label for="rollid">Enter Student's Surname: </label>
                                         <input type="text" class="form-control" id="rollid" placeholder="Registration Number" autocomplete="off" name="rollid">
                                 	</div>
-                               <div class="form-group">
-                                    <label for="default" class="col-sm-2 control-label">Class: </label>
-<select name="class" class="form-control" id="default" required="required">
-<option value="">Select Class</option>
-<?php $sql = "SELECT * from tblclasses";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{   ?>
-<option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->ClassName);?>-<?php echo htmlentities($result->ClassNameNumeric);?> &nbsp; Stream-<?php echo htmlentities($result->Section); ?></option>
-<?php }} ?>
- </select>
+                                    <div class="form-group">
+                                        <label for="default" class="col-sm-2 control-label">Class: </label>
+                                            <select name="class" class="form-control" id="default" required="required">
+                                                <option value="">Select Class</option>
+                                                    <?php $sql = "SELECT * from tblclasses";
+                                                    $query = $dbh->prepare($sql);
+                                                    $query->execute();
+                                                    $results=$query->fetchAll(PDO::FETCH_OBJ);
+                                                    if($query->rowCount() > 0)
+                                                    {
+                                                    foreach($results as $result)
+                                                    {   ?>
+                                                <option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->ClassName);?>-<?php echo htmlentities($result->ClassNameNumeric);?> &nbsp; Stream-<?php echo htmlentities($result->Section); ?></option>
+                                                <?php }} ?>
+                                            </select>
+                                    </div>
+
+<div>
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+        <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+    </div>
 </div>
     
                                     <div class="form-group mt-20">
