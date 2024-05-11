@@ -167,7 +167,7 @@ foreach($results as $result)
                                                         </div>
                                                     </div>
 <div class="form-group">
-                                                        <label for="date" class="col-sm-2 control-label">DOB</label>
+                                                        <label for="date" class="col-sm-2 control-label">Registration Date</label>
                                                         <div class="col-sm-10">
                                                             <input type="date"  name="dob" class="form-control" id="date">
                                                         </div>
