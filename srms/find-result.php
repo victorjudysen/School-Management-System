@@ -66,7 +66,7 @@ foreach($results as $result)
                             </div>
                         </div>
                         <!-- /.panel -->
-                        <p class="text-muted text-center"><small>Copyright © Group 04 Web-Tech [A] 2023</small></p>
+                        <p class="text-muted text-center"><small>Copyright © SMS | Courtesy of Group 05, Year 02 - Bsc. Software Engineering</small></p>
                     </div>
                     <!-- /.col-md-6 col-md-offset-3 -->
                 </div>
