@@ -70,12 +70,12 @@ if(isset($_POST['login']))
                                                 <div class="panel-body p-20">
 
                                                     <div class="section-title">
-                                                        <p class="sub-title">Please have your child's registration number and class name before proceeding.</p>
+                                                        <p class="sub-title">Dear Parent, Please use your child's full name and your password to access the results.</p>
                                                     </div>
 
                                                     <form class="form-horizontal" method="post">
                                                         <div class="form-group">
-                                                            <label for="inputEmail3" class="col-sm-6 control-label">Search your child's result: </label>
+                                                            <label for="inputEmail3" class="col-sm-6 control-label">Proceed Here: </label>
                                                             <div class="col-sm-6">
                                                                 <button><a href="find-result.php">Access Results</a></button>
                                                             </div>
