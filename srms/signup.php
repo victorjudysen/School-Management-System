@@ -64,11 +64,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         body {
             padding-top: 50px;
+            background-color: #f7f7f7;
         }
         .form-signup {
             max-width: 330px;
             padding: 15px;
             margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            animation: slide-up 0.5s ease forwards;
+        }
+        @keyframes slide-up {
+            from {
+                transform: translateY(50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .form-signup-heading {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
         }
         .form-signup .form-control {
             position: relative;
@@ -76,6 +96,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             height: auto;
             padding: 10px;
             font-size: 16px;
+        }
+        .btn-primary {
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+        }
+        .btn-primary:hover {
+            background-color: #4cae4c;
+            border-color: #4cae4c;
         }
     </style>
 </head>
