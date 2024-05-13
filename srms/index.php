@@ -74,7 +74,7 @@ if(isset($_POST['login'])) {
                                                     <div class="col-sm-6">
                                                         <button class="btn btn-primary"><a href="find-result.php">Access Results</a></button>
                                                         <div style="margin-top: 10px;">
-                                                            <button class="btn btn-primary"><a href="parent_signup.php">Sign Up</a></button>
+                                                            <button class="btn btn-primary" style="background-color: #5cb85c;"><a href="parent_signup.php" style="color: white;">Sign Up</a></button>
                                                         </div>
                                                     </div>
                                                 </div>
