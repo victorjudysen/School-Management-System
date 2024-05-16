@@ -147,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php } ?>
             <label for="inputChildName" class="sr-only">Child's Name</label>
             <input type="text" id="inputChildName" class="form-control" placeholder="Child's Name" name="childName" required autofocus>
-            <label for="inputParentEmail" class="sr-only">Parent's Email</label>
+            <label for="inputParentEmail" class="sr-only">Parent's Password</label>
             <input type="email" id="inputParentEmail" class="form-control" placeholder="Parent's Email" name="parentEmail" required>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
         </form>
