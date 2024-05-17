@@ -70,8 +70,6 @@ if ($student) {
                                         <div class="panel-heading">
                                             <div class="panel-title">
                                                 <p><b>Student Name:</b> <?php echo htmlentities($studentName); ?></p>
-                                                <p><b>Student Registration Number:</b> <?php echo htmlentities($RollId); ?></p>
-                                                <p><b>Student Class:</b> <?php echo htmlentities($ClassId); ?></p>
                                             </div>
                                         </div>
                                         <div class="panel-body p-20">
