@@ -95,6 +95,8 @@ if(strlen($_SESSION['alogin'])=="") {
                                                             <th>Email</th>
                                                             <th>Student Class</th>
                                                             <th>Sign Up Date</th>
+                                                            <th>Status</th>
+                                                            <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
@@ -104,6 +106,8 @@ if(strlen($_SESSION['alogin'])=="") {
                                                             <th>Email</th>
                                                             <th>Student Class</th>
                                                             <th>Sign Up Date</th>
+                                                            <th>Status</th>
+                                                            <th>Action</th>
                                                         </tr> -->
                                                     </tfoot>
                                                     <tbody>
@@ -122,10 +126,10 @@ foreach($results as $result)
     <td><?php echo htmlentities($result->Email);?></td>
     <td><?php echo htmlentities($result->StudentClass);?></td>
     <td><?php echo htmlentities($result->SignUpDate);?></td>
-<!-- <td>
+<td>
 <a href="edit-subject.php?subjectid=<?php echo htmlentities($result->id);?>"><i class="fa fa-edit" title="Edit Record"></i> </a> ||
 <a href="manage-subjects.php?delid=<?php echo ($result->id);?>" onclick="return confirm('Do you really want to Delete ?');"><i class="fa fa-trash-o"></i></a>
-</td> -->
+</td>
 </tr>
 <?php $cnt=$cnt+1;}} ?>            
                                                     </tbody>
