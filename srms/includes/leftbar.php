@@ -45,14 +45,14 @@
                                            
                                         </ul>
 
-<li class="has-children">
+<!-- <li class="has-children">
                                         <a href="#"><i class="fa fa-calendar"></i> <span>Attendance</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">
                                             <li><a href="add-students.php"><i class="fa fa-bars"></i> <span>Add Attendance </span></a></li>
                                             <li><a href="manage-students.php"><i class="fa fa fa-server"></i> <span>Manage Attendance</span></a></li>
                                         </ul>
 
-                                    </li>
+                                    </li> -->
 <li class="has-children">
                                         <a href="#"><i class="fa fa-pie-chart"></i> <span>Result</span> <i class="fa fa-angle-right arrow"></i></a>
                                         <ul class="child-nav">

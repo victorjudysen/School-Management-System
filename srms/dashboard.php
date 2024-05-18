@@ -140,7 +140,7 @@ $totalresults=$query3->rowCount();
 
         </div>
         <!-- /.main-wrapper -->
-vdx
+        
         <!-- ========== COMMON JS FILES ========== -->
         <script src="js/jquery/jquery-2.2.4.min.js"></script>
         <script src="js/jquery-ui/jquery-ui.min.js"></script>
@@ -193,7 +193,7 @@ vdx
                   "showMethod": "fadeIn",
                   "hideMethod": "fadeOut"
                 }
-                toastr["success"]( "Welcome to School Management System!");
+                toastr["success"]( "Welcome to the Staff Dashboard!");
 
             });
         </script>

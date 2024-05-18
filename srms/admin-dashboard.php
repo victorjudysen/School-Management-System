@@ -31,7 +31,7 @@ if(strlen($_SESSION['alogin'])=="")
         <?php include('includes/topbar.php');?>
         <div class="content-wrapper">
             <div class="content-container">
-                <?php include('includes/leftbar.php');?>
+            <?php include('includes/admin-leftbar.php'); ?>
 
                 <div class="main-page">
                     <div class="container-fluid">
