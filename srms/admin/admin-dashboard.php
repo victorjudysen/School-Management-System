@@ -1,3 +1,12 @@
+<?php
+session_start();
+error_reporting(0);
+include('includes/config.php');
+if(strlen($_SESSION['alogin']) == "" || $_SESSION['role'] != 'admin') {
+    header("Location: index.php");
+} else {
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +20,8 @@
     <link rel="stylesheet" href="css/lobipanel/lobipanel.min.css" media="screen">
     <link rel="stylesheet" href="css/toastr/toastr.min.css" media="screen">
     <link rel="stylesheet" href="css/icheck/skins/line/blue.css">
+    <link rel="stylesheet" href="css/icheck/skins/line/red.css">
+    <link rel="stylesheet" href="css/icheck/skins/line/green.css">
     <link rel="stylesheet" href="css/main.css" media="screen">
     <script src="js/modernizr/modernizr.min.js"></script>
 </head>
@@ -20,6 +31,7 @@
         <div class="content-wrapper">
             <div class="content-container">
                 <?php include('includes/leftbar.php');?>
+
                 <div class="main-page">
                     <div class="container-fluid">
                         <div class="row page-title-div">
@@ -28,38 +40,84 @@
                             </div>
                         </div>
                     </div>
+
                     <section class="section">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                    <a class="dashboard-stat bg-primary" href="manage-staff.php">
-                                        <!-- You can use PHP to fetch and display data -->
-                                        <span class="number counter">5</span>
-                                        <span class="name">Total Staff</span>
-                                        <span class="bg-icon"><i class="fa fa-users"></i></span>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                    <a class="dashboard-stat bg-danger" href="manage-parents.php">
-                                        <!-- You can use PHP to fetch and display data -->
-                                        <span class="number counter">20</span>
-                                        <span class="name">Total Parents</span>
-                                        <span class="bg-icon"><i class="fa fa-users"></i></span>
-                                    </a>
+                                <div class="col-lg-12">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a data-toggle="tab" href="#staff">Staff</a></li>
+                                        <li><a data-toggle="tab" href="#parents">Parents</a></li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div id="staff" class="tab-pane fade in active">
+                                            <h3>Staff Members</h3>
+                                            <?php
+                                            $sql = "SELECT UserName, Email FROM staff";
+                                            $query = $dbh->prepare($sql);
+                                            $query->execute();
+                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                            if($query->rowCount() > 0) {
+                                                echo '<table class="table table-striped">';
+                                                echo '<thead><tr><th>Username</th><th>Email</th></tr></thead>';
+                                                echo '<tbody>';
+                                                foreach($results as $result) {
+                                                    echo '<tr>';
+                                                    echo '<td>' . htmlentities($result->UserName) . '</td>';
+                                                    echo '<td>' . htmlentities($result->Email) . '</td>';
+                                                    echo '</tr>';
+                                                }
+                                                echo '</tbody></table>';
+                                            } else {
+                                                echo '<p>No staff members found.</p>';
+                                            }
+                                            ?>
+                                        </div>
+
+                                        <div id="parents" class="tab-pane fade">
+                                            <h3>Parents</h3>
+                                            <?php
+                                            $sql = "SELECT UserName, Email FROM parents";
+                                            $query = $dbh->prepare($sql);
+                                            $query->execute();
+                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                            if($query->rowCount() > 0) {
+                                                echo '<table class="table table-striped">';
+                                                echo '<thead><tr><th>Username</th><th>Email</th></tr></thead>';
+                                                echo '<tbody>';
+                                                foreach($results as $result) {
+                                                    echo '<tr>';
+                                                    echo '<td>' . htmlentities($result->UserName) . '</td>';
+                                                    echo '<td>' . htmlentities($result->Email) . '</td>';
+                                                    echo '</tr>';
+                                                }
+                                                echo '</tbody></table>';
+                                            } else {
+                                                echo '<p>No parents found.</p>';
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </section>
                 </div>
+
             </div>
         </div>
     </div>
+
+    <!-- ========== COMMON JS FILES ========== -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <script src="js/jquery-ui/jquery-ui.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
     <script src="js/pace/pace.min.js"></script>
     <script src="js/lobipanel/lobipanel.min.js"></script>
     <script src="js/iscroll/iscroll.js"></script>
+
+    <!-- ========== PAGE JS FILES ========== -->
     <script src="js/prism/prism.js"></script>
     <script src="js/waypoint/waypoints.min.js"></script>
     <script src="js/counterUp/jquery.counterup.min.js"></script>
@@ -70,41 +128,51 @@
     <script src="js/amcharts/themes/light.js"></script>
     <script src="js/toastr/toastr.min.js"></script>
     <script src="js/icheck/icheck.min.js"></script>
+
+    <!-- ========== THEME JS ========== -->
     <script src="js/main.js"></script>
     <script src="js/production-chart.js"></script>
     <script src="js/traffic-chart.js"></script>
     <script src="js/task-list.js"></script>
     <script>
         $(function(){
+            // Counter for dashboard stats
             $('.counter').counterUp({
                 delay: 100,
                 time: 1000
             });
 
+            // Welcome notification
             toastr.options = {
-              "closeButton": true,
-              "debug": false,
-              "newestOnTop": false,
-              "progressBar": false,
-              "positionClass": "toast-top-right",
-              "preventDuplicates": false,
-              "onclick": null,
-              "showDuration": "300",
-              "hideDuration": "1000",
-              "timeOut": "5000",
-              "extendedTimeOut": "1000",
-              "showEasing": "swing",
-              "hideEasing": "linear",
-              "showMethod": "fadeIn",
-              "hideMethod": "fadeOut"
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
             }
-            toastr["success"]("Welcome to Admin Dashboard!");
+            toastr["success"]( "Welcome to the Admin Dashboard!");
         });
     </script>
 </body>
-<div class="foot"><footer>
-<p> Courtesy of Group 05 - Bsc. Software Engineering Year 02</a>
-</footer> </div>
 
-<style> .foot{text-align: center; */}</style>
+<div class="foot">
+    <footer>
+        <p> Courtesy of Group 05 - Bsc. Software Engineering Year 02</a></p>
+    </footer>
+</div>
+
+<style> 
+.foot { text-align: center; } 
+</style>
 </html>
+<?php } ?>
