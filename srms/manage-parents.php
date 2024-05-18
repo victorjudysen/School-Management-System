@@ -127,9 +127,6 @@ foreach($results as $result)
     <td><?php echo htmlentities($result->StudentClass);?></td>
     <td><?php echo htmlentities($result->SignUpDate);?></td>
 <td>
-<a href="edit-subject.php?subjectid=<?php echo htmlentities($result->id);?>"><i class="fa fa-edit" title="Edit Record"></i> </a> ||
-<a href="manage-subjects.php?delid=<?php echo ($result->id);?>" onclick="return confirm('Do you really want to Delete ?');"><i class="fa fa-trash-o"></i></a>
-</td>
 </tr>
 <?php $cnt=$cnt+1;}} ?>            
                                                     </tbody>
