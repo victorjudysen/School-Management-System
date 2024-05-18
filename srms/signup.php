@@ -1,24 +1,26 @@
 <?php
-// Include database configuration
+// Database connection
 include('includes/config.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get parent's input
-    $childName = $_POST['childName'];
-    $password = $_POST['password'];
+    $username = $_POST['childName'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    // $studentName = $_POST['studentName'];
+    $studentClass = $_POST['studentClass'];
 
-    // Store password in the database
-    try {
-        $sql = "INSERT INTO parent_temp_password (child_name, temp_password) VALUES (:childName, :password)";
-        $stmt = $dbh->prepare($sql);
-        $stmt->bindParam(':childName', $childName, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-        $stmt->execute();
-        // Redirect to success page or login page
-        header("Location: find-result.php");
-        exit;
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+    $sql = "INSERT INTO parents (UserName, Email, Password, StudentClass) VALUES (:username, :email, :password, :studentClass)";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':username', $username, PDO::PARAM_STR);
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
+    $query->bindParam(':password', $password, PDO::PARAM_STR);
+    // $query->bindParam(':studentName', $studentName, PDO::PARAM_STR);
+    $query->bindParam(':studentClass', $studentClass, PDO::PARAM_STR);
+    
+    if ($query->execute()) {
+        echo "Parent signed up successfully.";
+    } else {
+        echo "Error: Could not sign up parent.";
     }
 }
 ?>
@@ -111,10 +113,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <form class="form-signup" method="post">
             <h2 class="form-signup-heading">Welcome, Sign Up!</h2>
+            
             <label for="inputChildName" class="sr-only">Child's Name</label>
             <input type="text" id="inputChildName" class="form-control" placeholder="Child's Name" name="childName" required autofocus>
+            
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" id="email" class="form-control" placeholder="Email" name="email" required>
+
+            <!-- <label for="studentName" class="sr-only">Student Name: </label>
+            <input type="text" id="studentName" class="form-control" placeholder="Student Name" name="studentName" required> -->
+            
+            <label for="studentClass" class="sr-only">Student Class</label>
+            <input type="text" id="studentClass" class="form-control" placeholder="Student Class" name="studentClass" required>
+
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+            
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
         </form>
     </div>

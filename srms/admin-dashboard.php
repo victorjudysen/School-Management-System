@@ -66,7 +66,7 @@ $totalstaff=$query1->rowCount();
                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                         <a class="dashboard-stat bg-danger">
 <?php
-$sql ="SELECT id from  tblsubjects ";
+$sql ="SELECT ParentID from  parents ";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
