@@ -2,10 +2,11 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['alogin']) == "" || $_SESSION['role'] != 'admin') {
+if(strlen($_SESSION['alogin'])=="") 
+    {
     header("Location: index.php");
-} else {
-    ?>
+    } else {
+?>
 
 <!DOCTYPE html>
 <html lang="en">
