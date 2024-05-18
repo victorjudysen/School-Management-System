@@ -81,12 +81,8 @@ if(strlen($_SESSION['alogin'])=="")
 
                         <section class="section">
                             <div class="container-fluid">
-
-                             
-
                                 <div class="row">
                                     <div class="col-md-12">
-
                                         <div class="panel">
                                             <div class="panel-heading">
                                                 <div class="panel-title">
@@ -116,19 +112,37 @@ else if($error){?>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
-                                                    <!-- <tfoot>
+                                                    <tfoot>
                                                         <tr>
                                                           <th>#</th>
                                                             <th>Student Name</th>
-                                                            <th>Roll Id</th>
+                                                            <th>Registration Number</th>
                                                             <th>Class</th>
-                                                            <th>Reg Date</th>
+                                                            <th>Registration Date</th>
                                                             <th>Status</th>
                                                             <th>Action</th>
                                                         </tr>
-                                                    </tfoot> -->
+                                                    </tfoot>
                                                     <tbody>
-<?php $sql = "SELECT  distinct tblstudents.StudentName,tblstudents.RollId,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblclasses.ClassName,tblclasses.ClassNameNumeric,tblclasses.Section from tblresult join tblstudents on tblstudents.StudentId=tblresult.StudentId  join tblclasses on tblclasses.id=tblresult.ClassId";
+<?php $sql = 
+"SELECT  distinct tblstudents.StudentName,
+        tblstudents.RollId,
+        tblstudents.RegDate,
+        tblstudents.StudentId,
+        tblstudents.Status,
+        tblclasses.ClassName,
+        tblclasses.ClassNameNumeric,
+        tblclasses.Section 
+        from 
+        tblresult 
+        join 
+        tblstudents 
+        on 
+        tblstudents.StudentId=tblresult.StudentId  
+        join 
+        tblclasses 
+        on 
+        tblclasses.id=tblresult.ClassId";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);

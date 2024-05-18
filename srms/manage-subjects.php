@@ -96,12 +96,8 @@ if(strlen($_SESSION['alogin'])=="")
 
                         <section class="section">
                             <div class="container-fluid">
-
-                             
-
                                 <div class="row">
                                     <div class="col-md-12">
-
                                         <div class="panel">
                                             <div class="panel-heading">
                                                 <div class="panel-title">

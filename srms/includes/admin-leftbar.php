@@ -26,7 +26,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-child"></i> <span>Parents</span></a>
+                    <a href="manage-parents.php"><i class="fa fa-child"></i> <span>Parents</span></a>
                 </li>
             </ul>
         </div>

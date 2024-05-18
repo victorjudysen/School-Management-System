@@ -119,12 +119,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <label for="email" class="sr-only">Email</label>
             <input type="email" id="email" class="form-control" placeholder="Email" name="email" required>
-
-            <!-- <label for="studentName" class="sr-only">Student Name: </label>
-            <input type="text" id="studentName" class="form-control" placeholder="Student Name" name="studentName" required> -->
             
             <label for="studentClass" class="sr-only">Student Class</label>
-            <input type="text" id="studentClass" class="form-control" placeholder="Student Class" name="studentClass" required>
+            <input type="text" id="studentClass" class="form-control" placeholder="Form [X] Stream [Y]" name="studentClass" required>
 
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
