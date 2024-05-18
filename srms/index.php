@@ -4,39 +4,24 @@ error_reporting(0);
 include('includes/config.php');
 
 if($_SESSION['alogin']!=''){
-    $_SESSION['alogin']='';
+$_SESSION['alogin']='';
 }
 
 if(isset($_POST['login'])) {
-    $uname = $_POST['username'];
-    $password = md5($_POST['password']);
+    $uname=$_POST['username'];
+    $password=md5($_POST['password']);
+    $sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
+    $query= $dbh -> prepare($sql);
+    $query-> bindParam(':uname', $uname, PDO::PARAM_STR);
+    $query-> bindParam(':password', $password, PDO::PARAM_STR);
+    $query-> execute();
+    $results=$query->fetchAll(PDO::FETCH_OBJ);
 
-    // Checking for admin login
-    $sqlAdmin = "SELECT UserName, Password FROM admin WHERE UserName=:uname and Password=:password";
-    $queryAdmin = $dbh->prepare($sqlAdmin);
-    $queryAdmin->bindParam(':uname', $uname, PDO::PARAM_STR);
-    $queryAdmin->bindParam(':password', $password, PDO::PARAM_STR);
-    $queryAdmin->execute();
-    $resultAdmin = $queryAdmin->fetch(PDO::FETCH_OBJ);
-
-    if($queryAdmin->rowCount() > 0) {
-        $_SESSION['alogin'] = $uname;
-        echo "<script type='text/javascript'> document.location = 'admin-dashboard.php'; </script>";
+    if($query->rowCount() > 0){
+        $_SESSION['alogin']=$_POST['username'];
+        echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
     } else {
-        // Checking for staff login
-        $sqlStaff = "SELECT UserName, Password FROM staff WHERE UserName=:uname and Password=:password";
-        $queryStaff = $dbh->prepare($sqlStaff);
-        $queryStaff->bindParam(':uname', $uname, PDO::PARAM_STR);
-        $queryStaff->bindParam(':password', $password, PDO::PARAM_STR);
-        $queryStaff->execute();
-        $resultStaff = $queryStaff->fetch(PDO::FETCH_OBJ);
-
-        if($queryStaff->rowCount() > 0) {
-            $_SESSION['alogin'] = $uname;
-            echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
-        } else {
-            echo "<script>alert('Invalid Details');</script>";
-        }
+        echo "<script>alert('Invalid Details');</script>";
     }
 }
 ?>
