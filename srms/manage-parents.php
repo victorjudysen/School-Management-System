@@ -95,8 +95,6 @@ if(strlen($_SESSION['alogin'])=="") {
                                                             <th>Email</th>
                                                             <th>Student Class</th>
                                                             <th>Sign Up Date</th>
-                                                            <th>Status</th>
-                                                            <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
@@ -106,8 +104,6 @@ if(strlen($_SESSION['alogin'])=="") {
                                                             <th>Email</th>
                                                             <th>Student Class</th>
                                                             <th>Sign Up Date</th>
-                                                            <th>Status</th>
-                                                            <th>Action</th>
                                                         </tr> -->
                                                     </tfoot>
                                                     <tbody>
