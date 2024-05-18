@@ -12,12 +12,12 @@ if(isset($_POST['login'])) {
     $password = md5($_POST['password']);
 
     // Checking for admin login
-    $sqlAdmin = "SELECT UserName, Password FROM admin WHERE UserName=:uname and Password=:password";
+    $sqlAdmin = "SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
     $queryAdmin = $dbh->prepare($sqlAdmin);
     $queryAdmin->bindParam(':uname', $uname, PDO::PARAM_STR);
     $queryAdmin->bindParam(':password', $password, PDO::PARAM_STR);
     $queryAdmin->execute();
-    $resultAdmin = $queryAdmin->fetch(PDO::FETCH_OBJ);
+    $resultAdmin = $queryAdmin->fetchAll(PDO::FETCH_OBJ);
 
     if($queryAdmin->rowCount() > 0) {
         $_SESSION['alogin'] = $uname;
