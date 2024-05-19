@@ -2,8 +2,8 @@
     <div class="sidebar-content">
         <div class="user-info closed">
             <img width="80px" height="80px" src="https://ajirapeak.com/wp-content/uploads/2021/08/University-of-dodoma-udom.jpg" alt="Udom Logo" class="img-circle profile-img">
-            <h6 class="title">Group 04</h6>
-            <small class="info">Members of Web Tech [A]</small>
+            <h6 class="title">Group 05</h6>
+            <small class="info">Bsc. Software Engineering - Year 02</small>
         </div>
 
         <div class="sidebar-nav">
