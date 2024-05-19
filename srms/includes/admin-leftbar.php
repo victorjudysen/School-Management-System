@@ -19,7 +19,7 @@
                     <span class="">Sub Categories</span>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-users"></i> <span>Staff</span> <i class="fa fa-angle-right arrow"></i></a>
+                    <a href=""><i class="fa fa-users"></i> <span>Staff</span> <i class="fa fa-angle-right arrow"></i></a>
                     <ul class="child-nav">
                         <li><a href="add-staff.php"><i class="fa fa-bars"></i> <span>Add Staff</span></a></li>
                         <li><a href="manage-staff.php"><i class="fa fa fa-server"></i> <span>Manage Staff</span></a></li>
