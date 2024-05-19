@@ -29,7 +29,7 @@ if(isset($_POST['login'])) {
         $queryStaff->bindParam(':uname', $uname, PDO::PARAM_STR);
         $queryStaff->bindParam(':password', $password, PDO::PARAM_STR);
         $queryStaff->execute();
-        $resultStaff = $queryStaff->fetch(PDO::FETCH_OBJ);
+        $resultStaff = $queryStaff->fetchAll(PDO::FETCH_OBJ);
 
         if($queryStaff->rowCount() > 0) {
             $_SESSION['alogin'] = $uname;
