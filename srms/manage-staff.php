@@ -125,8 +125,9 @@ if($query->rowCount() > 0){
         <td><?php echo htmlentities($result->Gender);?></td>
         <td><?php echo htmlentities($result->Phone);?></td>
         <td>
-            <a href="edit-staff.php?stid=<?php echo htmlentities($result->id);?>"><i class="fa fa-edit" title="Edit Record"></i> </a> || 
+            <!-- <a href="edit-staff.php?stid=<?php echo htmlentities($result->id);?>"><i class="fa fa-edit" title="Edit Record"></i> </a> ||  --> --- 
             <a href="manage-staff.php?delid=<?php echo ($result->id);?>" onclick="return confirm('Do you really want to Delete ?');"><i class="fa fa-trash-o"></i></a>
+            ---
         </td>
     </tr>
 <?php $cnt=$cnt+1;}} ?>
