@@ -41,11 +41,11 @@ include('includes/config.php');
                     <div class="panel-body p-20">
                         <form action="validate_login.php" method="post">
                             <div class="form-group">
-                                <label for="username">EnterStudent's Name:</label>
+                                <label for="username">Student's Name:</label>
                                 <input type="text" class="form-control" id="username" placeholder="Student's Name" autocomplete="off" name="username">
                             </div>
                             <div class="form-group">
-                                <label for="password">Enter Password:</label>
+                                <label for="password">Password:</label>
                                 <input type="password" class="form-control" id="password" placeholder="Password" autocomplete="off" name="password">
                             </div>
 

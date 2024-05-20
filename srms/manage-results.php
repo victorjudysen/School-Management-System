@@ -166,7 +166,6 @@ else{
                                                                 ?></td>
 <td>
 <a href="edit-result.php?stid=<?php echo htmlentities($result->StudentId);?>"><i class="fa fa-edit" title="Edit Record"></i> </a> 
-
 </td>
 </tr>
 <?php $cnt=$cnt+1;}} ?>
