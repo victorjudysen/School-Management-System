@@ -3,44 +3,49 @@ session_start();
 error_reporting(0);
 include('includes/config.php');
 
-if($_SESSION['alogin']!=''){
-    $_SESSION['alogin']='';
+if ($_SESSION['alogin'] != '') {
+    $_SESSION['alogin'] = '';
 }
 
-if(isset($_POST['login'])) {
+if (isset($_POST['login'])) {
     $uname = $_POST['username'];
-    $password = md5($_POST['password']);
+    $password = $_POST['password']; // No hashing here
 
     // Checking for admin login
-    $sqlAdmin = "SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
+    $sqlAdmin = "SELECT UserName, Password FROM tbladmin WHERE UserName = :uname";
     $queryAdmin = $dbh->prepare($sqlAdmin);
     $queryAdmin->bindParam(':uname', $uname, PDO::PARAM_STR);
-    $queryAdmin->bindParam(':password', $password, PDO::PARAM_STR);
     $queryAdmin->execute();
-    $resultAdmin = $queryAdmin->fetchAll(PDO::FETCH_OBJ);
+    $resultAdmin = $queryAdmin->fetch(PDO::FETCH_OBJ);
 
-    if($queryAdmin->rowCount() > 0) {
-        $_SESSION['alogin'] = $uname;
-        echo "<script type='text/javascript'> document.location = 'admin-dashboard.php'; </script>";
+    if ($resultAdmin) {
+        if (password_verify($password, $resultAdmin->Password)) {
+            $_SESSION['alogin'] = $uname;
+            echo "<script type='text/javascript'> document.location = 'admin-dashboard.php'; </script>";
+        } else {
+            echo "<script>alert('Invalid Details');</script>";
+        }
     } else {
         // Checking for staff login
-        $sqlStaff = "SELECT UserName, Password FROM staff WHERE UserName=:uname and Password=:password";
+        $sqlStaff = "SELECT UserName, Password FROM staff WHERE UserName = :uname";
         $queryStaff = $dbh->prepare($sqlStaff);
         $queryStaff->bindParam(':uname', $uname, PDO::PARAM_STR);
-        $queryStaff->bindParam(':password', $password, PDO::PARAM_STR);
         $queryStaff->execute();
-        $resultStaff = $queryStaff->fetchAll(PDO::FETCH_OBJ);
+        $resultStaff = $queryStaff->fetch(PDO::FETCH_OBJ);
 
-        if($queryStaff->rowCount() > 0) {
-            $_SESSION['alogin'] = $uname;
-            echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+        if ($resultStaff) {
+            if (password_verify($password, $resultStaff->Password)) {
+                $_SESSION['alogin'] = $uname;
+                echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+            } else {
+                echo "<script>alert('Invalid Details');</script>";
+            }
         } else {
             echo "<script>alert('Invalid Details');</script>";
         }
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

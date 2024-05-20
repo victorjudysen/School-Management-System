@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 19, 2024 at 10:30 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Host: 127.0.0.1
+-- Generation Time: May 20, 2024 at 10:32 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,27 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `srms`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `UserName` varchar(100) NOT NULL,
-  `Password` varchar(100) NOT NULL,
-  `updationDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`id`, `UserName`, `Password`, `updationDate`) VALUES
-(3, 'Leonard Msele', '69b6e098c30134ae1bf8775dc4ce3ce9', '0000-00-00 00:00:00'),
-(4, 'Tabu Kondo', '0e36e4d28991605ec7738af08c65d9a0', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -86,9 +65,30 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `UserName`, `Email`, `Password`, `Subject`, `Gender`, `Phone`) VALUES
-(8, 'Abraham Macha', 'abraham.macha@cive.udom.ac.tz', '$2y$10$g4.QqQ0sbRXIpJ.WLVrtUeKnaALs9GU/Az.3WYecIjxxdVvHVF21S', 'Mathematics', 'Male', '+255799112233'),
 (9, 'Lucian Ngeze', 'lucian.ngeze@cive.udom.ac.tz', '$2y$10$5jLqeDWK28kMdVC77EoMPuhRg9g8qi0wSba8oGp5YNQy8if.CJ8UK', 'English', 'Male', '+255609010203'),
-(10, 'Doris Mwengwa', 'doris.mwengwa@cive.udom.ac.tz', '$2y$10$dfGNFbiUtE/J0zrTCKh/QujnSy5GqZstkofcMiN1rMBGU5O1a889K', 'Geography', 'Female', '+255710203040');
+(10, 'Doris Mwengwa', 'doris.mwengwa@cive.udom.ac.tz', '$2y$10$dfGNFbiUtE/J0zrTCKh/QujnSy5GqZstkofcMiN1rMBGU5O1a889K', 'Geography', 'Female', '+255710203040'),
+(11, 'Abraham Macha', 'abraham.macha@cive.udom.ac.tz', '$2y$10$juis6EE5GFgOLqF5Z1ZlNe0RiezLllLQIrEwvKifPtfsjV3eOqqe2', 'Kiswahili', 'Male', '+255729394959');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbladmin`
+--
+
+CREATE TABLE `tbladmin` (
+  `id` int(11) NOT NULL,
+  `UserName` varchar(100) NOT NULL,
+  `Password` varchar(100) NOT NULL,
+  `updationDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `tbladmin`
+--
+
+INSERT INTO `tbladmin` (`id`, `UserName`, `Password`, `updationDate`) VALUES
+(3, 'Leonard Msele', '$2y$10$69tM.OAb5XqqPbLWDuYTseHG5JApVkTXfuZT.dDrHDUSF0j/2ypx6', '2024-05-19 13:25:16'),
+(4, 'Tabu Kondo', '$2y$10$P.uppjDrH/RCCHPQuKzPLuv972X1/mHomjOidgnKiK4COugyH82KK', '2024-05-19 13:24:27');
 
 -- --------------------------------------------------------
 
@@ -326,12 +326,6 @@ INSERT INTO `tblsubjects` (`id`, `SubjectName`, `SubjectCode`, `Creationdate`, `
 --
 
 --
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `parents`
 --
 ALTER TABLE `parents`
@@ -341,6 +335,12 @@ ALTER TABLE `parents`
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbladmin`
+--
+ALTER TABLE `tbladmin`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -378,12 +378,6 @@ ALTER TABLE `tblsubjects`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
@@ -393,7 +387,13 @@ ALTER TABLE `parents`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `tbladmin`
+--
+ALTER TABLE `tbladmin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tblclasses`
