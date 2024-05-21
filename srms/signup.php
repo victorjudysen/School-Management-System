@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" id="inputChildName" class="form-control" placeholder="Child's Name" name="childName" required autofocus>
             
             <label for="email" class="sr-only">Email</label>
-            <input type="email" id="email" class="form-control" placeholder="Email" name="email" required>
+            <input type="email" id="email" class="form-control" placeholder="Parent's Email" name="email" required>
             
             <label for="studentClass" class="sr-only">Student Class</label>
             <input type="text" id="studentClass" class="form-control" placeholder="Form [X] Stream [Y]" name="studentClass" required>

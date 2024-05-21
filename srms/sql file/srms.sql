@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 20, 2024 at 10:32 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost
+-- Generation Time: May 21, 2024 at 04:56 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,8 +41,29 @@ CREATE TABLE `parents` (
 --
 
 INSERT INTO `parents` (`ParentID`, `UserName`, `Email`, `Password`, `StudentClass`, `SignUpDate`) VALUES
-(1, 'Nuhi Katambi', 's.katambi@gmail.com', '$2y$10$Ib68bq1QrqQSPJ1q5.2P.ORZ4oA4ppuCHONlrJrUKHMX4/hlOQ/pG', 'Form 1-C', '2024-05-18 15:19:46'),
-(2, 'Jackson Kawawa', 'm.kawawa@gmail.com', '$2y$10$tq4cIXaUx7sKYFo92qd3veLh14P3mMQLAjUqk..uO0OhAiUrt7YeK', 'Form 1-A', '2024-05-18 17:08:35');
+(5, 'Victor Kweka', 'j.kweka@gmail.com', '$2y$10$vcFttiv6F6i6zeskunJMHeTgzwKzlDGtufLJHEHgHQAlldkp/4tKy', 'Form 1 Stream A', '2024-05-20 09:37:28'),
+(6, 'Abdul-Swammad Hassan', 'hassan.jumanne@gmail.com', '$2y$10$esprBrWs32Si6LfJo0Rl/ermxOnnF7bqVR52vfs5drE4R0dN49Gui', 'Form 1 Stream A', '2024-05-21 02:07:16'),
+(7, 'Beckham Yona', 'mwakanjuki@gmail.com', '$2y$10$qKPE0xC6NG1HBdvUtshWHOhFNlNbEtsuXRdOo5DbK/N2o3YTKi0Se', 'Form 1 Stream B', '2024-05-21 02:09:15'),
+(8, 'Nuhi Katambi', 's.katambi@gmail.com', '$2y$10$0D8uDr5UZq8ol2D96xBfRuL.Rh39.JmO782vi6KKvV3gObGnngSKO', 'Form 1 Stream C', '2024-05-21 02:11:58'),
+(9, 'Mahir Abdul', 'a.rashid@gmail.com', '$2y$10$NQYZ/ymlp.s6sqd89RZ3VOyAlWtveFDXH47mQrlfx68budQ0wnncC', 'Form 2 Stream A', '2024-05-21 02:12:41'),
+(10, 'Joel Kiwango', 'v.kiwango@gmail.com', '$2y$10$VrrYDt.xomVmFp74wM.t8.w5Td.69bmRdt5xMji31LisqpJRwZQNi', 'Form 2 Stream B', '2024-05-21 02:13:16'),
+(11, 'Winfrida Joseph', 'j.hamisi@gmail.com', '$2y$10$IGLfEEnA8nt.EtCTomMeoO4BnLDgrZBcRbq90xPH27kWrr0iI.1Nm', 'Form 3 Stream A', '2024-05-21 02:15:27'),
+(12, 'Julius Peter', 'p.ntale@gmail.com', '$2y$10$oJQY0kjbYRqLzs1NeWs6c.KQz6N.NR/0wpdWE5MN4iyFBzWsAOB/2', 'Form 3 Stream B', '2024-05-21 02:16:30'),
+(13, 'Gladness Rutaihwa', 'raph.ruta@gmail.com', '$2y$10$MIB9q0Fyzf7qGz68PNNuvesoUPv96itdUJSVb2uLr7GJWf1LPu2qi', 'Form 1 Stream A', '2024-05-21 02:17:34'),
+(14, 'Jackson Kawawa', 'm.kawawa@gmail.com', '$2y$10$c1NjQlX4gDrTUXxVojGEBu4L6E2.bWDI2zn296AKc7isCxhnsEIf.', 'Form 3 Stream C', '2024-05-21 02:27:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `parent_temp_password`
+--
+
+CREATE TABLE `parent_temp_password` (
+  `id` int(11) NOT NULL,
+  `child_name` varchar(255) NOT NULL,
+  `temp_password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -141,50 +162,69 @@ CREATE TABLE `tblresult` (
 --
 
 INSERT INTO `tblresult` (`id`, `StudentId`, `ClassId`, `SubjectId`, `marks`, `PostingDate`, `UpdationDate`) VALUES
-(41, 12, 1, 8, 91, '2023-09-17 15:03:15', NULL),
-(42, 12, 1, 8, 99, '2023-09-17 15:03:15', NULL),
-(43, 12, 1, 2, 89, '2023-09-17 15:03:15', NULL),
-(44, 12, 1, 1, 99, '2023-09-17 15:03:15', NULL),
-(45, 14, 2, 13, 88, '2024-05-17 05:01:28', NULL),
-(46, 14, 2, 14, 71, '2024-05-17 05:01:28', NULL),
-(47, 14, 2, 12, 90, '2024-05-17 05:01:28', NULL),
-(48, 14, 2, 11, 81, '2024-05-17 05:01:28', NULL),
-(49, 13, 1, 13, 34, '2024-05-17 05:27:52', NULL),
-(50, 13, 1, 14, 76, '2024-05-17 05:27:52', NULL),
-(51, 13, 1, 12, 69, '2024-05-17 05:27:52', NULL),
-(52, 13, 1, 11, 80, '2024-05-17 05:27:52', NULL),
-(53, 15, 3, 13, 78, '2024-05-17 05:28:13', NULL),
-(54, 15, 3, 14, 87, '2024-05-17 05:28:13', NULL),
-(55, 15, 3, 12, 56, '2024-05-17 05:28:13', NULL),
-(56, 15, 3, 11, 89, '2024-05-17 05:28:13', NULL),
-(57, 16, 4, 13, 87, '2024-05-17 05:28:33', NULL),
-(58, 16, 4, 14, 67, '2024-05-17 05:28:33', NULL),
-(59, 16, 4, 12, 45, '2024-05-17 05:28:33', NULL),
-(60, 16, 4, 11, 80, '2024-05-17 05:28:33', NULL),
-(61, 17, 5, 13, 67, '2024-05-17 05:28:53', NULL),
-(62, 17, 5, 14, 87, '2024-05-17 05:28:53', NULL),
-(63, 17, 5, 12, 45, '2024-05-17 05:28:53', NULL),
-(64, 17, 5, 11, 70, '2024-05-17 05:28:53', NULL),
-(65, 18, 6, 13, 89, '2024-05-17 05:29:14', NULL),
-(66, 18, 6, 14, 79, '2024-05-17 05:29:14', NULL),
-(67, 18, 6, 12, 69, '2024-05-17 05:29:14', NULL),
-(68, 18, 6, 11, 87, '2024-05-17 05:29:14', NULL),
-(69, 19, 7, 13, 67, '2024-05-17 05:29:35', NULL),
-(70, 19, 7, 14, 87, '2024-05-17 05:29:35', NULL),
-(71, 19, 7, 12, 56, '2024-05-17 05:29:35', NULL),
-(72, 19, 7, 11, 78, '2024-05-17 05:29:35', NULL),
-(73, 20, 8, 13, 78, '2024-05-17 05:29:56', NULL),
-(74, 20, 8, 14, 87, '2024-05-17 05:29:56', NULL),
-(75, 20, 8, 12, 77, '2024-05-17 05:29:56', NULL),
-(76, 20, 8, 11, 87, '2024-05-17 05:29:56', NULL),
-(77, 21, 9, 13, 56, '2024-05-17 05:32:32', NULL),
-(78, 21, 9, 14, 98, '2024-05-17 05:32:32', NULL),
-(79, 21, 9, 12, 79, '2024-05-17 05:32:32', NULL),
-(80, 21, 9, 11, 86, '2024-05-17 05:32:32', NULL),
-(81, 22, 1, 13, 56, '2024-05-17 05:33:34', NULL),
-(82, 22, 1, 14, 87, '2024-05-17 05:33:34', NULL),
-(83, 22, 1, 12, 67, '2024-05-17 05:33:34', NULL),
-(84, 22, 1, 11, 87, '2024-05-17 05:33:34', NULL);
+(85, 13, 1, 17, 99, '2024-05-20 08:59:00', NULL),
+(86, 13, 1, 16, 81, '2024-05-20 08:59:00', NULL),
+(87, 13, 1, 18, 88, '2024-05-20 08:59:00', NULL),
+(88, 13, 1, 13, 89, '2024-05-20 08:59:00', NULL),
+(89, 13, 1, 13, 71, '2024-05-20 08:59:00', NULL),
+(90, 13, 1, 13, 77, '2024-05-20 08:59:00', NULL),
+(91, 13, 1, 14, 70, '2024-05-20 08:59:00', NULL),
+(92, 13, 1, 14, 61, '2024-05-20 08:59:00', NULL),
+(93, 13, 1, 19, 90, '2024-05-20 08:59:00', NULL),
+(103, 15, 3, 11, 88, '2024-05-21 02:01:19', NULL),
+(104, 15, 3, 12, 90, '2024-05-21 02:01:19', NULL),
+(105, 15, 3, 13, 33, '2024-05-21 02:01:19', NULL),
+(106, 15, 3, 14, 45, '2024-05-21 02:01:19', NULL),
+(107, 15, 3, 15, 83, '2024-05-21 02:01:19', NULL),
+(108, 15, 3, 16, 22, '2024-05-21 02:01:19', NULL),
+(109, 15, 3, 17, 91, '2024-05-21 02:01:19', NULL),
+(110, 15, 3, 18, 66, '2024-05-21 02:01:19', NULL),
+(111, 15, 3, 19, 50, '2024-05-21 02:01:19', NULL),
+(112, 22, 1, 11, 88, '2024-05-21 02:41:23', NULL),
+(113, 22, 1, 12, 39, '2024-05-21 02:41:23', NULL),
+(114, 22, 1, 13, 66, '2024-05-21 02:41:23', NULL),
+(115, 22, 1, 14, 91, '2024-05-21 02:41:23', NULL),
+(116, 22, 1, 15, 90, '2024-05-21 02:41:23', NULL),
+(117, 22, 1, 16, 55, '2024-05-21 02:41:23', NULL),
+(118, 22, 1, 17, 76, '2024-05-21 02:41:23', NULL),
+(119, 22, 1, 18, 39, '2024-05-21 02:41:23', NULL),
+(120, 22, 1, 19, 65, '2024-05-21 02:41:23', NULL),
+(121, 14, 2, 11, 39, '2024-05-21 02:41:23', NULL),
+(122, 14, 2, 12, 55, '2024-05-21 02:41:23', NULL),
+(123, 14, 2, 13, 91, '2024-05-21 02:41:23', NULL),
+(124, 14, 2, 14, 88, '2024-05-21 02:41:23', NULL),
+(125, 14, 2, 15, 83, '2024-05-21 02:41:23', NULL),
+(126, 14, 2, 16, 78, '2024-05-21 02:41:23', NULL),
+(127, 14, 2, 17, 62, '2024-05-21 02:41:23', NULL),
+(128, 14, 2, 18, 77, '2024-05-21 02:41:23', NULL),
+(129, 14, 2, 19, 66, '2024-05-21 02:41:23', NULL),
+(130, 16, 4, 11, 45, '2024-05-21 02:41:23', NULL),
+(131, 16, 4, 12, 33, '2024-05-21 02:41:23', NULL),
+(132, 16, 4, 13, 67, '2024-05-21 02:41:23', NULL),
+(133, 16, 4, 14, 77, '2024-05-21 02:41:23', NULL),
+(134, 16, 4, 15, 71, '2024-05-21 02:41:23', NULL),
+(135, 16, 4, 16, 92, '2024-05-21 02:41:23', NULL),
+(136, 16, 4, 17, 67, '2024-05-21 02:41:23', NULL),
+(137, 16, 4, 18, 77, '2024-05-21 02:41:23', NULL),
+(138, 16, 4, 19, 81, '2024-05-21 02:41:23', NULL),
+(139, 17, 5, 11, 95, '2024-05-21 02:41:23', NULL),
+(140, 17, 5, 12, 99, '2024-05-21 02:41:23', NULL),
+(141, 17, 5, 13, 75, '2024-05-21 02:41:23', NULL),
+(142, 17, 5, 14, 77, '2024-05-21 02:41:23', NULL),
+(143, 17, 5, 15, 38, '2024-05-21 02:41:23', NULL),
+(144, 17, 5, 16, 67, '2024-05-21 02:41:23', NULL),
+(145, 17, 5, 17, 55, '2024-05-21 02:41:23', NULL),
+(146, 17, 5, 18, 44, '2024-05-21 02:41:23', NULL),
+(147, 17, 5, 19, 76, '2024-05-21 02:41:23', NULL),
+(148, 18, 6, 11, 56, '2024-05-21 02:41:23', NULL),
+(149, 18, 6, 12, 77, '2024-05-21 02:41:23', NULL),
+(150, 18, 6, 13, 33, '2024-05-21 02:41:23', NULL),
+(151, 18, 6, 14, 67, '2024-05-21 02:41:23', NULL),
+(152, 18, 6, 15, 45, '2024-05-21 02:41:23', NULL),
+(153, 18, 6, 16, 57, '2024-05-21 02:41:23', NULL),
+(154, 18, 6, 17, 88, '2024-05-21 02:41:23', NULL),
+(155, 18, 6, 18, 86, '2024-05-21 02:41:23', NULL),
+(156, 18, 6, 19, 77, '2024-05-21 02:41:23', NULL);
 
 -- --------------------------------------------------------
 
@@ -219,7 +259,9 @@ INSERT INTO `tblstudents` (`StudentId`, `StudentName`, `RollId`, `StudentEmail`,
 (19, 'Winfrida Joseph', 'T22 - 03 - 09890', 'winfrida.joseph@cive.com', 'Female', '2022-10-29', 7, '2024-05-11 21:58:58', NULL, 1),
 (20, 'Julius Peter', 'T22 - 03 - 05441', 'julius.peter@cive.com', 'Male', '2022-10-29', 8, '2024-05-11 21:59:33', NULL, 1),
 (21, 'Jackson Kawawa', 'T22 - 03 - 05809', 'jack.kawawa@cive.com', 'Male', '2022-10-29', 9, '2024-05-11 22:00:21', NULL, 1),
-(22, 'Gladness Rutaihwa', 'T22 - 03 - 00581', 'gladness.raph@cive.com', 'Male', '2022-10-29', 1, '2024-05-11 22:01:03', NULL, 1);
+(22, 'Gladness Rutaihwa', 'T22 - 03 - 00581', 'gladness.raph@cive.com', 'Male', '2022-10-29', 1, '2024-05-11 22:01:03', NULL, 1),
+(23, 'Walter Mtui', 'T22 - 03 - 01020', 'w.foden@gmail.com', 'Male', '23 - 01 - 2000', 2, '2024-05-21 01:15:51', NULL, 1),
+(24, 'Novert Kimaro', 'T22 - 03 - 10210', 'n.kimaro@gmail.com', 'Male', '01 - 09 - 2001', 1, '2024-05-21 01:15:51', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -260,8 +302,8 @@ INSERT INTO `tblsubjectcombination` (`id`, `ClassId`, `SubjectId`, `status`, `Cr
 (45, 2, 14, 1, '2024-05-17 05:01:10', '2024-05-17 05:01:10'),
 (46, 1, 11, 0, '2024-05-17 05:15:00', '2024-05-17 05:15:00'),
 (47, 1, 12, 1, '2024-05-17 05:15:04', '2024-05-17 05:15:04'),
-(48, 1, 13, 1, '2024-05-17 05:15:09', '2024-05-17 05:15:09'),
-(49, 1, 14, 1, '2024-05-17 05:15:12', '2024-05-17 05:15:12'),
+(48, 1, 13, 0, '2024-05-17 05:15:09', '2024-05-17 05:15:09'),
+(49, 1, 14, 0, '2024-05-17 05:15:12', '2024-05-17 05:15:12'),
 (50, 2, 11, 1, '2024-05-17 05:15:31', '2024-05-17 05:15:31'),
 (51, 2, 12, 1, '2024-05-17 05:15:37', '2024-05-17 05:15:37'),
 (52, 2, 13, 1, '2024-05-17 05:15:44', '2024-05-17 05:15:44'),
@@ -295,7 +337,16 @@ INSERT INTO `tblsubjectcombination` (`id`, `ClassId`, `SubjectId`, `status`, `Cr
 (80, 9, 11, 1, '2024-05-17 05:24:32', '2024-05-17 05:24:32'),
 (81, 9, 12, 1, '2024-05-17 05:24:40', '2024-05-17 05:24:40'),
 (82, 9, 13, 1, '2024-05-17 05:24:47', '2024-05-17 05:24:47'),
-(83, 9, 14, 1, '2024-05-17 05:24:53', '2024-05-17 05:24:53');
+(83, 9, 14, 1, '2024-05-17 05:24:53', '2024-05-17 05:24:53'),
+(84, 1, 12, 0, '2024-05-20 08:53:12', '2024-05-20 08:53:12'),
+(85, 1, 13, 1, '2024-05-20 08:53:18', '2024-05-20 08:53:18'),
+(86, 1, 13, 0, '2024-05-20 08:53:23', '2024-05-20 08:53:23'),
+(87, 1, 14, 1, '2024-05-20 08:53:27', '2024-05-20 08:53:27'),
+(88, 1, 15, 1, '2024-05-20 08:53:32', '2024-05-20 08:53:32'),
+(89, 1, 16, 1, '2024-05-20 08:53:36', '2024-05-20 08:53:36'),
+(90, 1, 17, 1, '2024-05-20 08:53:41', '2024-05-20 08:53:41'),
+(91, 1, 18, 1, '2024-05-20 08:53:48', '2024-05-20 08:53:48'),
+(92, 1, 19, 1, '2024-05-20 08:53:51', '2024-05-20 08:53:51');
 
 -- --------------------------------------------------------
 
@@ -316,10 +367,15 @@ CREATE TABLE `tblsubjects` (
 --
 
 INSERT INTO `tblsubjects` (`id`, `SubjectName`, `SubjectCode`, `Creationdate`, `UpdationDate`) VALUES
-(11, 'Mathematics', 'MT-1111', '2023-09-17 15:13:44', '0000-00-00 00:00:00'),
-(12, 'Kiswahili', 'KS-122', '2024-05-17 05:00:32', '0000-00-00 00:00:00'),
-(13, 'English', 'EN-122', '2024-05-17 05:00:41', '0000-00-00 00:00:00'),
-(14, 'Geography', 'GE-122', '2024-05-17 05:00:56', '0000-00-00 00:00:00');
+(11, 'Mathematics', 'MATH', '2023-09-17 15:13:44', '2024-05-20 08:45:50'),
+(12, 'Kiswahili', 'KISW', '2024-05-17 05:00:32', '2024-05-20 08:46:03'),
+(13, 'English', 'ENG', '2024-05-17 05:00:41', '2024-05-20 08:46:09'),
+(14, 'Geography', 'GEO', '2024-05-17 05:00:56', '2024-05-20 08:46:16'),
+(15, 'Physics', 'PHY', '2024-05-20 08:46:23', '0000-00-00 00:00:00'),
+(16, 'Chemistry', 'CHEM', '2024-05-20 08:46:28', '0000-00-00 00:00:00'),
+(17, 'Biology', 'BIOS', '2024-05-20 08:46:34', '0000-00-00 00:00:00'),
+(18, 'Civics', 'CIV', '2024-05-20 08:47:07', '0000-00-00 00:00:00'),
+(19, 'History', 'HIST', '2024-05-20 08:47:11', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -330,6 +386,12 @@ INSERT INTO `tblsubjects` (`id`, `SubjectName`, `SubjectCode`, `Creationdate`, `
 --
 ALTER TABLE `parents`
   ADD PRIMARY KEY (`ParentID`);
+
+--
+-- Indexes for table `parent_temp_password`
+--
+ALTER TABLE `parent_temp_password`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `staff`
@@ -381,7 +443,13 @@ ALTER TABLE `tblsubjects`
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `ParentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ParentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `parent_temp_password`
+--
+ALTER TABLE `parent_temp_password`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `staff`
@@ -405,25 +473,25 @@ ALTER TABLE `tblclasses`
 -- AUTO_INCREMENT for table `tblresult`
 --
 ALTER TABLE `tblresult`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT for table `tblstudents`
 --
 ALTER TABLE `tblstudents`
-  MODIFY `StudentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `StudentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tblsubjectcombination`
 --
 ALTER TABLE `tblsubjectcombination`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `tblsubjects`
 --
 ALTER TABLE `tblsubjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

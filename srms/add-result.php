@@ -145,7 +145,7 @@ if (strlen($_SESSION['alogin']) == "") {
                                                 </div>
                                             </div>
                                         </form>
-                                        <form class="form-horizontal" method="post">
+                                        <!-- <form class="form-horizontal" method="post">
                                             <div class="form-group">
                                                 <label for="default" class="col-sm-2 control-label">Class</label>
                                                 <div class="col-sm-10">
@@ -188,7 +188,7 @@ if (strlen($_SESSION['alogin']) == "") {
                                                     <button type="submit" name="submit" id="submit" class="btn btn-primary">Upload Result</button>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </form> -->
                                     </div>
                                 </div>
                             </div>
