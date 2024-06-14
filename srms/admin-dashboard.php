@@ -148,7 +148,7 @@ $totalparents=$query->rowCount();
 
 <div class="foot">
     <footer>
-        <p> Courtesy of Group 05 - Bsc. Software Engineering Year 02</a></p>
+        <p> Courtesy of Group 05 - Bsc. Software Engineering [Year 02]</a></p>
     </footer>
 </div>
 
